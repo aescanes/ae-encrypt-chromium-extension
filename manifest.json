@@ -1,13 +1,17 @@
 {
-  "name": "AE22 Encrypt",
-  "version": "1.0",
-  "manifest_version": 2,
-  "description": "The best extension to encrypt and decrypt plain text / La mejor extension para encriptar y desencriptar texto plano.",
-  "browser_action": {
-    "default_icon": "lock19.png",
-	"default_popup": "popup.html"
-  },  
-  "icons": { "16": "lock16.png",
-             "48": "lock48.png",
-             "128": "lock128.png" }
+  "manifest_version": 3,
+  "name": "AE Encrypt",
+  "version": "1.1.0",
+  "description": "Encrypt and decrypt plain text / Encriptar y desencriptar texto plano.",
+  "author": "alejandroescanes@gmail.com",
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_icon": "images/icon-19.png",
+    "default_title": "AE Encrypt",
+    "default_popup": "popup/popup.html"
+  }
 }

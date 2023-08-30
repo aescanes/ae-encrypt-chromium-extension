@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>AE Encrypt</title>
+	<!-- JavaScript and HTML must be in separate files for security. -->
+	<script src="popup.js"></script>
+	<script src="../scripts/md5-min.js"></script>
+	<script src="../scripts/sha1-min.js"></script>
+	<script src="../scripts/sha256-min.js"></script>
+	<script src="../scripts/sha512-min.js"></script>
+	<script src="../scripts/ripemd160-min.js"></script>
+	<link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+	<div id="logo"><img src="../images/title.png"></div>
+
+	<div id="content">
+		<p>
+			<input type="text" value="" id="input" class="rounded" name="input" />
+			<img id="close" src="../images/delete.png" alt="Delete">
+		</p>
+		<p>
+			<button type="button" id="button_md5" class="button medium orange">MD5</button>
+			<button type="button" id="button_sha1" class="button medium orange">SHA-1</button>
+			<button type="button" id="button_sha256" class="button medium orange">SHA-256</button>
+			<button type="button" id="button_sha512" class="button medium orange">SHA-512</button>
+			<button type="button" id="button_ripemd160" class="button medium orange">RIPEMD160</button>
+			<button type="button" id="button_eb64" class="button medium orange">Base64 encode</button>
+			<button type="button" id="button_db64" class="button medium orange">Base64 decode</button>
+		</p>
+		<p>
+			<span class="fixed-span" id="output"></span>
+		<div class="clickable-icon">
+			<img id="copy" src="../images/copy.png" alt="Copy to clipboard">
+		</div>
+		</p>
+	</div>
+
+</body>
+
+</html>
