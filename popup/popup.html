@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>AE Encrypt</title>
-	<!-- JavaScript and HTML must be in separate files for security. -->
-	<script src="popup.js"></script>
-	<script src="../scripts/md5-min.js"></script>
-	<script src="../scripts/sha1-min.js"></script>
-	<script src="../scripts/sha256-min.js"></script>
-	<script src="../scripts/sha512-min.js"></script>
-	<script src="../scripts/ripemd160-min.js"></script>
-	<link rel="stylesheet" href="popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AE Encrypt</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="popup.js"></script>
+  <script src="../scripts/md5-min.js"></script>
+  <script src="../scripts/sha1-min.js"></script>
+  <script src="../scripts/sha256-min.js"></script>
+  <script src="../scripts/sha512-min.js"></script>
+  <script src="../scripts/ripemd160-min.js"></script>
 </head>
 
 <body>
-	<div id="logo"><img src="../images/title.png"></div>
-
-	<div id="content">
-		<p>
-			<input type="text" value="" id="input" class="rounded" name="input" />
-			<img id="close" src="../images/delete.png" alt="Delete">
-		</p>
-		<p>
-			<button type="button" id="button_md5" class="button medium orange">MD5</button>
-			<button type="button" id="button_sha1" class="button medium orange">SHA-1</button>
-			<button type="button" id="button_sha256" class="button medium orange">SHA-256</button>
-			<button type="button" id="button_sha512" class="button medium orange">SHA-512</button>
-			<button type="button" id="button_ripemd160" class="button medium orange">RIPEMD160</button>
-			<button type="button" id="button_eb64" class="button medium orange">Base64 encode</button>
-			<button type="button" id="button_db64" class="button medium orange">Base64 decode</button>
-		</p>
-		<p>
-			<span class="fixed-span" id="output"></span>
-		<div class="clickable-icon">
-			<img id="copy" src="../images/copy.png" alt="Copy to clipboard">
-		</div>
-		</p>
-	</div>
-
+  <div id="content">
+    <div id="logo">
+      <img src="../images/title.png" alt="Logo">
+    </div>
+    <div>
+      <button type="button" id="close" class="button medium orange">close</button>
+    </div>
+    <div class="input-container">
+      <textarea id="input" placeholder="Insert text to hash or encode/decode"></textarea>
+      <button type="button" id="reset" class="button medium orange">reset</button>
+    </div>
+    <div class="down-arrow">
+      <img src="../images/down-arrow-48.png" alt="arrow-down">
+    </div>
+    <div class="select-container">
+      <select id="hashing" name="hashing">
+        <option value="hash_default">Select a hashing option</option>
+        <option value="md5">MD5</option>
+        <option value="sha1">SHA-1</option>
+        <option value="sha256">SHA-256</option>
+        <option value="sha512">SHA-512</option>
+        <option value="ripemd160">RIPEMD160</option>
+      </select>
+    </div>
+    <div class="button-container">
+      <button type="button" id="button_eb64" class="button medium orange">base64 encode</button>
+      <button type="button" id="button_db64" class="button medium orange">base64 decode</button>
+    </div>
+    <div class="down-arrow">
+      <img src="../images/down-arrow-48.png" alt="arrow-down">
+    </div>
+    <div class="output-container">
+      <textarea id="output" disabled="disabled"></textarea>
+      <img class="icon" id="copy" src="../images/copy.png" alt="Copy to clipboard">
+    </div>
+  </div>
 </body>
 
 </html>

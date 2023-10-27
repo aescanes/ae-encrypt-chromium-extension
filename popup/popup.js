@@ -3,15 +3,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-	document.getElementById('close').addEventListener('click', cleanAll)
-	document.getElementById('button_md5').addEventListener('click', function () { convert('md5') })
-	document.getElementById('button_sha1').addEventListener('click', function () { convert('sha1') })
-	document.getElementById('button_sha256').addEventListener('click', function () { convert('sha256') })
-	document.getElementById('button_sha512').addEventListener('click', function () { convert('sha512') })
-	document.getElementById('button_ripemd160').addEventListener('click', function () { convert('ripemd160') })
+	document.getElementById('reset').addEventListener('click', resetAll)
+	document.getElementById('close').addEventListener('click', closePopup)
+	document.getElementById('hashing').addEventListener('change', function () { convert(document.getElementById('hashing').value) })
 	document.getElementById('button_eb64').addEventListener('click', function () { convert('eb64') })
 	document.getElementById('button_db64').addEventListener('click', function () { convert('db64') })
 	document.getElementById('copy').addEventListener('click', copyToClipboard)
+	document.getElementById('input').addEventListener('input', updateInput)
 })
 
 function base64ToBytes(base64) {
@@ -28,9 +26,19 @@ function copyToClipboard() {
 	navigator.clipboard.writeText(document.getElementById('output').textContent)
 }
 
-function cleanAll() {
+function resetAll() {
 	document.getElementById('input').value = ''
 	document.getElementById('output').textContent = ''
+	document.getElementById('hashing').options[0].selected = true
+}
+
+function updateInput() {
+	document.getElementById('output').textContent = ''
+	document.getElementById('hashing').options[0].selected = true
+}
+
+function closePopup() {
+	window.close();
 }
 
 function convert(type) {
