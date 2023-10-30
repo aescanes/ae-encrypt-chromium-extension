@@ -33,8 +33,12 @@ function resetAll() {
 }
 
 function updateInput() {
-	document.getElementById('output').textContent = ''
-	document.getElementById('hashing').options[0].selected = true
+	// TODO check if the select has one option chosen and hash the text again.
+	if (document.getElementById('hashing').value !== 'hash_default') {
+		convert(document.getElementById('hashing').value)
+	} else {
+		document.getElementById('output').textContent = ''
+	}
 }
 
 function closePopup() {
@@ -61,8 +65,10 @@ function convert(type) {
 		dataFromForm = hex_rmd160(inputValue)
 	} else if (type == 'eb64') {
 		dataFromForm = bytesToBase64(new TextEncoder().encode(inputValue))
+		document.getElementById('hashing').options[0].selected = true
 	} else if (type == 'db64') {
 		dataFromForm = new TextDecoder().decode(base64ToBytes(inputValue))
+		document.getElementById('hashing').options[0].selected = true
 	}
 
 	document.getElementById('output').textContent = dataFromForm

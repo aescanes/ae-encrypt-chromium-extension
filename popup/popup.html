@@ -26,30 +26,27 @@
       <textarea id="input" placeholder="Insert text to hash or encode/decode"></textarea>
       <button type="button" id="reset" class="button medium orange">reset</button>
     </div>
-    <div class="down-arrow">
-      <img src="../images/down-arrow-48.png" alt="arrow-down">
-    </div>
-    <div class="select-container">
-      <select id="hashing" name="hashing">
-        <option value="hash_default">Select a hashing option</option>
-        <option value="md5">MD5</option>
-        <option value="sha1">SHA-1</option>
-        <option value="sha256">SHA-256</option>
-        <option value="sha512">SHA-512</option>
-        <option value="ripemd160">RIPEMD160</option>
-      </select>
-    </div>
-    <div class="button-container">
-      <button type="button" id="button_eb64" class="button medium orange">base64 encode</button>
-      <button type="button" id="button_db64" class="button medium orange">base64 decode</button>
-    </div>
-    <div class="down-arrow">
-      <img src="../images/down-arrow-48.png" alt="arrow-down">
+    <div id="app-actions">
+      <div class="select-container">
+        <select id="hashing" name="hashing">
+          <option value="hash_default">Select a hashing option</option>
+          <option value="md5">MD5</option>
+          <option value="sha1">SHA-1</option>
+          <option value="sha256">SHA-256</option>
+          <option value="sha512">SHA-512</option>
+          <option value="ripemd160">RIPEMD160</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button type="button" id="button_eb64" class="button medium orange">base64 encode</button>
+        <button type="button" id="button_db64" class="button medium orange">base64 decode</button>
+      </div>
     </div>
     <div class="output-container">
       <textarea id="output" disabled="disabled"></textarea>
-      <img class="icon" id="copy" src="../images/copy.png" alt="Copy to clipboard">
+      <img class="icon" id="copy" src="../images/copy-paste.png" alt="Copy to clipboard">
     </div>
+  </div>
   </div>
 </body>
 
