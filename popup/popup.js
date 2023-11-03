@@ -1,13 +1,13 @@
 /**
- * 
+ * AE Encrypt functionalities
  */
 
 document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('reset').addEventListener('click', resetAll)
 	document.getElementById('close').addEventListener('click', closePopup)
-	document.getElementById('hashing').addEventListener('change', function () { convert(document.getElementById('hashing').value) })
-	document.getElementById('button_eb64').addEventListener('click', function () { convert('eb64') })
-	document.getElementById('button_db64').addEventListener('click', function () { convert('db64') })
+	document.getElementById('hashing').addEventListener('change', function () { convertInputToOutput(document.getElementById('hashing').value) })
+	document.getElementById('button_eb64').addEventListener('click', function () { convertInputToOutput('eb64') })
+	document.getElementById('button_db64').addEventListener('click', function () { convertInputToOutput('db64') })
 	document.getElementById('copy').addEventListener('click', copyToClipboard)
 	document.getElementById('input').addEventListener('input', updateInput)
 })
@@ -33,9 +33,8 @@ function resetAll() {
 }
 
 function updateInput() {
-	// TODO check if the select has one option chosen and hash the text again.
 	if (document.getElementById('hashing').value !== 'hash_default') {
-		convert(document.getElementById('hashing').value)
+		convertInputToOutput(document.getElementById('hashing').value)
 	} else {
 		document.getElementById('output').textContent = ''
 	}
@@ -45,31 +44,41 @@ function closePopup() {
 	window.close();
 }
 
-function convert(type) {
+function convertInputToOutput(type) {
 	if (document.getElementById('input').value == '') {
 		document.getElementById('output').textContent = ''
 		return
 	}
-	const inputValue = document.getElementById('input').value
-	let dataFromForm = ''
 
-	if (type == 'md5') {
-		dataFromForm = hex_md5(inputValue)
-	} else if (type == 'sha1') {
-		dataFromForm = hex_sha1(inputValue)
-	} else if (type == 'sha256') {
-		dataFromForm = hex_sha256(inputValue)
-	} else if (type == 'sha512') {
-		dataFromForm = hex_sha512(inputValue)
-	} else if (type == 'ripemd160') {
-		dataFromForm = hex_rmd160(inputValue)
-	} else if (type == 'eb64') {
-		dataFromForm = bytesToBase64(new TextEncoder().encode(inputValue))
-		document.getElementById('hashing').options[0].selected = true
-	} else if (type == 'db64') {
-		dataFromForm = new TextDecoder().decode(base64ToBytes(inputValue))
+	const inputValue = document.getElementById('input').value
+	const outputValue = hashingOrEncondingInputValue(type, inputValue)
+
+	if (type == 'eb64' || type == 'db64') {
 		document.getElementById('hashing').options[0].selected = true
 	}
 
-	document.getElementById('output').textContent = dataFromForm
+	document.getElementById('output').textContent = outputValue
 }
+
+function hashingOrEncondingInputValue(type, inputValue) {
+	let outputValue = ''
+	if (type == 'md5') {
+		outputValue = hex_md5(inputValue)
+	} else if (type == 'sha1') {
+		outputValue = hex_sha1(inputValue)
+	} else if (type == 'sha256') {
+		outputValue = hex_sha256(inputValue)
+	} else if (type == 'sha512') {
+		outputValue = hex_sha512(inputValue)
+	} else if (type == 'ripemd160') {
+		outputValue = hex_rmd160(inputValue)
+	} else if (type == 'eb64') {
+		outputValue = bytesToBase64(new TextEncoder().encode(inputValue))
+	} else if (type == 'db64') {
+		outputValue = new TextDecoder().decode(base64ToBytes(inputValue))
+	}
+
+	return outputValue
+}
+
+module.exports = { base64ToBytes, bytesToBase64, hashingOrEncondingInputValue }

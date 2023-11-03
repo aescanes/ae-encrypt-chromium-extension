@@ -13,7 +13,7 @@ AE Encrypt is a powerful Chrome extension that allows users to encrypt plain tex
 - **User-Friendly Interface:** The extension offers an intuitive and easy-to-use interface, making text encryption and decryption accessible to all users.
 - **Clipboard Support:** Easily copy the encrypted or decrypted text to your clipboard with a single click.
 
-## Installation
+## Installation of the extension (Developer mode)
 
 1. Clone the repository or download the ZIP file.
 2. Open Chrome and navigate to `chrome://extensions/`.
@@ -30,6 +30,28 @@ AE Encrypt is a powerful Chrome extension that allows users to encrypt plain tex
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the functionality, add new features, or fix bugs.
+
+## Development
+
+### Requirements
+Ensure you have the following software installed on your machine before running the project:
+
+* Node.js (version 14.17.6 or later)
+* npm (version 6.14.15 or later)
+
+### Installation
+Clone the repository and install the dependencies using npm:
+
+```bash
+npm install
+```
+
+### Test
+Using [Jest](https://jestjs.io/) framework run the tests
+
+```bash
+npm test
+```
 
 ## License
 
