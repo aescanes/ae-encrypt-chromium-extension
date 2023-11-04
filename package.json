@@ -1,0 +1,20 @@
+{
+  "name": "ae-encrypt",
+  "version": "1.1.0",
+  "description": "Encrypt plain texts using various hashing algorithms and encoding methods.",
+  "author": "aescanes <alejandroescanes@gmail.com>",
+  "homepage": "https://github.com/aescanes/ae-encrypt-chromium-extension",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aescanes/ae-encrypt-chromium-extension.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "text-encoding-utf-8": "^1.0.2"
+  }
+}
